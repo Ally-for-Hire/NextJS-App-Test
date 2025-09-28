@@ -38,10 +38,6 @@ jobs:
         run: vercel build --prod --token $VERCEL_TOKEN
 
       - name: Deploy to Vercel
-        id: deploy
         run: |
           DEPLOY_URL=$(vercel deploy --prebuilt --prod --token $VERCEL_TOKEN)
-          echo "deployment-url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-
-      - name: Share deployment URL
-        run: echo "Deployment URL: ${{ steps.deploy.outputs.deployment-url }}"
+          echo "Deployment URL: $DEPLOY_URL"
