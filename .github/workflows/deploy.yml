@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy Next.js (Vercel)
 
 on:
   push:
@@ -18,9 +18,11 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -40,3 +42,7 @@ jobs:
         run: |
           DEPLOY_URL=$(vercel deploy --prebuilt --prod --token $VERCEL_TOKEN)
           echo "Deployment URL: $DEPLOY_URL"
+          echo "# Vercel Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "- Project built with Vercel CLI" >> $GITHUB_STEP_SUMMARY
+          echo "- Deployment URL: $DEPLOY_URL" >> $GITHUB_STEP_SUMMARY
+          echo "- If using NEXT_PUBLIC_WORKER_URL, ensure it is set in Vercel env and redeploy as needed." >> $GITHUB_STEP_SUMMARY

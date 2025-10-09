@@ -12,10 +12,10 @@ jobs:
   deploy-worker:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Publish with Wrangler
+      - name: Publish Worker with Wrangler
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -23,3 +23,11 @@ jobs:
           workingDirectory: cloudflare-worker
           command: publish
 
+      - name: Post deployment summary
+        run: |
+          echo "# Cloudflare Worker Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "- Service: nextjs-app-test-worker" >> $GITHUB_STEP_SUMMARY
+          echo "- Config: cloudflare-worker/wrangler.toml" >> $GITHUB_STEP_SUMMARY
+          echo "- Source: cloudflare-worker/src/index.js" >> $GITHUB_STEP_SUMMARY
+          echo "- Dashboard: https://dash.cloudflare.com/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/workers/services/view/nextjs-app-test-worker" >> $GITHUB_STEP_SUMMARY
+          echo "- Note: The workers.dev URL is printed in the Wrangler step logs above." >> $GITHUB_STEP_SUMMARY
