@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-app-test",
+  "name": "nextjs-cloudflare-worker-time-api-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {

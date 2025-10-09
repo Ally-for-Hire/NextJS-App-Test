@@ -26,8 +26,8 @@ jobs:
       - name: Post deployment summary
         run: |
           echo "# Cloudflare Worker Deployment" >> $GITHUB_STEP_SUMMARY
-          echo "- Service: nextjs-app-test-worker" >> $GITHUB_STEP_SUMMARY
+          echo "- Service: nextjs-cloudflare-worker-time-api-worker" >> $GITHUB_STEP_SUMMARY
           echo "- Config: cloudflare-worker/wrangler.toml" >> $GITHUB_STEP_SUMMARY
           echo "- Source: cloudflare-worker/src/index.js" >> $GITHUB_STEP_SUMMARY
-          echo "- Dashboard: https://dash.cloudflare.com/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/workers/services/view/nextjs-app-test-worker" >> $GITHUB_STEP_SUMMARY
+          echo "- Dashboard: https://dash.cloudflare.com/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/workers/services/view/nextjs-cloudflare-worker-time-api-worker" >> $GITHUB_STEP_SUMMARY
           echo "- Note: The workers.dev URL is printed in the Wrangler step logs above." >> $GITHUB_STEP_SUMMARY

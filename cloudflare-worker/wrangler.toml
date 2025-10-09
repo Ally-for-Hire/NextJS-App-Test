@@ -1,4 +1,4 @@
-name = "nextjs-app-test-worker"
+name = "nextjs-cloudflare-worker-time-api-worker"
 main = "src/index.js"
 compatibility_date = "2025-10-09"
 
@@ -6,4 +6,3 @@ compatibility_date = "2025-10-09"
 # routes = [
 #   { pattern = "example.com/api/time", zone_id = "<YOUR_ZONE_ID>" }
 # ]
-

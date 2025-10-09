@@ -1,4 +1,4 @@
-# Next.js + Cloudflare Worker Demo
+# Next.js + Cloudflare Worker Time API Demo
 
 This is a minimal Next.js app that shows a counter and fetches the current server time from a Cloudflare Worker via a Next.js API route. It’s set up so you can run everything locally and deploy via GitHub Actions.
 
@@ -57,7 +57,7 @@ Environment variables in Vercel:
 ## Deploy: Cloudflare Worker
 - Location: `cloudflare-worker/`
 - Entry: `cloudflare-worker/src/index.js`
-- Config: `cloudflare-worker/wrangler.toml` (service: `nextjs-app-test-worker`)
+- Config: `cloudflare-worker/wrangler.toml` (service: `nextjs-cloudflare-worker-time-api-worker`)
 - Workflow file: `.github/workflows/cloudflare-worker.yml`
 - Triggers: push to `main`, manual run (`workflow_dispatch`)
 
