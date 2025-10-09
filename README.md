@@ -18,6 +18,7 @@ This is a minimal Next.js app that renders a single page with a button. When cli
    npm run dev
    ```
 4. Visit `http://localhost:3000` and click the button to see "hello".
+5. Alternatively: https://next-js-app-test-six.vercel.app/
 
 ## Deployment
 Pushing to the `main` branch triggers a GitHub Actions workflow that builds the project and deploys it to Vercel. Configure the repository secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` with your Vercel credentials before running the workflow.
