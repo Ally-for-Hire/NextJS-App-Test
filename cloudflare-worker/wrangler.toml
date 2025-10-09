@@ -1,0 +1,9 @@
+name = "nextjs-app-test-worker"
+main = "src/index.js"
+compatibility_date = "2025-10-09"
+
+# Uncomment and configure if you want to bind a custom domain/route
+# routes = [
+#   { pattern = "example.com/api/time", zone_id = "<YOUR_ZONE_ID>" }
+# ]
+

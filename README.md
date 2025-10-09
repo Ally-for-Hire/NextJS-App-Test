@@ -22,3 +22,29 @@ This is a minimal Next.js app that renders a single page with a button. When cli
 
 ## Deployment
 Pushing to the `main` branch triggers a GitHub Actions workflow that builds the project and deploys it to Vercel. Configure the repository secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` with your Vercel credentials before running the workflow.
+
+## Cloudflare Worker (Auto‑Deploy)
+- Location: `cloudflare-worker/`
+- Entry: `cloudflare-worker/src/index.js`
+- Config: `cloudflare-worker/wrangler.toml`
+
+The Worker returns JSON with the current server time:
+
+```
+{
+  "time": "2025-01-01T12:34:56.000Z"
+}
+```
+
+### GitHub Actions
+Commits to `main` also trigger `.github/workflows/cloudflare-worker.yml`, which deploys the Worker via Wrangler.
+
+### Required GitHub Secrets
+Add these repository secrets for Cloudflare deployment:
+- `CLOUDFLARE_API_TOKEN` — API token with Workers Scripts:Edit and Account:Read permissions
+- `CLOUDFLARE_ACCOUNT_ID` — Your Cloudflare account ID
+
+After the first successful deploy, the Worker will be available at a `*.workers.dev` URL (shown in workflow logs). Optionally, configure custom routes/domains in `wrangler.toml`.
+
+### Using from the App
+Update the Worker URL in `app/page.js` to the newly deployed `*.workers.dev` URL once available.
