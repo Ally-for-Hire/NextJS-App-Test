@@ -3,13 +3,17 @@
 import { useState } from "react";
 
 export default function HomePage() {
-  const [message, setMessage] = useState("");
+  const [count, setCount] = useState(0);
 
   return (
     <main className="container">
       <h1>Welcome</h1>
-      <button className="button" onClick={() => setMessage("hello")}>Show Hello</button>
-      {message && <p className="message">{message}</p>}
+      <button
+        className="button"
+        onClick={() => setCount((c) => c + 1)}
+      >
+        Count: {count}
+      </button>
     </main>
   );
 }
